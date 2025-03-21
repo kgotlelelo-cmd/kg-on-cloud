@@ -24,7 +24,7 @@ resource "aws_s3_bucket_ownership_controls" "ownership_control" {
   }
 }
 
-resource "aws_s3_bucket_acl" "bucket_acl" {
+resource "aws_s3_bucket_acl" "bucket_acl" { //use bucket policy instead of acl
   depends_on = [aws_s3_bucket_ownership_controls.ownership_control]
   bucket     = aws_s3_bucket.bucket.id
   acl        = "private"
